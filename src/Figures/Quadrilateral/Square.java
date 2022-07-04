@@ -6,7 +6,14 @@ public class Square extends Quadrilateral {
     private double area;
     private double perimeter;
 
+    @Override
+    public void typeOfFigure() {
+        super.typeOfFigure();
+        System.out.println("квадрат");
+    }
+
     public Square(double lengthOFfEdge) {
+        typeOfFigure();
         setLengthOFfEdge(lengthOFfEdge);
     }
 
@@ -14,24 +21,20 @@ public class Square extends Quadrilateral {
     public double getLengthOFfEdge() { return lengthOFfEdge; }
 
     @Override
-    public void area() {
-        area = getLengthOFfEdge() * getLengthOFfEdge();
-    }
-
     public double getArea() { return area; }
 
-    public void getAreaVoid() {
+    @Override
+    public void printArea() {
+        area = getLengthOFfEdge() * getLengthOFfEdge();
         System.out.println("S = " + getArea());
     }
 
+    @Override
     public double getPerimeter() { return perimeter; }
 
     @Override
-    public void perimeter() {
+    public void printPerimeter() {
         perimeter = getLengthOFfEdge() * 4;
-    }
-
-    public void getPerimeterVoid() {
         System.out.println("P = " + getPerimeter());
     }
 }

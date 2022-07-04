@@ -1,6 +1,6 @@
 package Figures.Quadrilateral;
 
-public class ConvexQuadrilateral {
+public class ConvexQuadrilateral extends Quadrilateral {
 
     private double lengthOfEdge1, lengthOfEdge2, lengthOfEdge3, lengthOfEdge4;
     private double area;
@@ -8,11 +8,23 @@ public class ConvexQuadrilateral {
 
     double[] lengthsOfEdges = new double[4];
 
+    @Override
+    public void typeOfFigure() {
+        super.typeOfFigure();
+        System.out.println("выпуклый четырёхугольник");
+    }
+
     public ConvexQuadrilateral(double lengthOfEdge1, double lengthOfEdge2, double lengthOfEdge3, double lengthOfEdge4) {
+        typeOfFigure();
         setLengthOfEdge1(lengthOfEdge1);
         setLengthOfEdge2(lengthOfEdge2);
         setLengthOfEdge3(lengthOfEdge3);
         setLengthOfEdge4(lengthOfEdge4);
+
+        lengthsOfEdges[0] = getLengthOfEdge1();
+        lengthsOfEdges[1] = getLengthOfEdge2();
+        lengthsOfEdges[2] = getLengthOfEdge3();
+        lengthsOfEdges[3] = getLengthOfEdge4();
     }
 
     public void setLengthOfEdge1(double lengthOfEdge1) { this.lengthOfEdge1 = lengthOfEdge1; }
@@ -27,21 +39,22 @@ public class ConvexQuadrilateral {
     public void setLengthOfEdge4(double lengthOfEdge4) { this.lengthOfEdge4 = lengthOfEdge4; }
     public double getLengthOfEdge4() { return lengthOfEdge4; }
 
-    public void area() {
+    @Override
+    public double getArea() { return area; }
+
+    @Override
+    public void printArea() {
         System.out.println("S = d1 * d2 * sinα");
     }
 
-    // public double getArea() { return area; }
+    @Override
+    public double getPerimeter() { return perimeter; }
 
-    public void perimeter() {
+    @Override
+    public void printPerimeter() {
         for (double length : lengthsOfEdges) {
             perimeter += length;
         }
-    }
-
-    public double getPerimeter() { return perimeter; }
-
-    public void getPerimeterVoid() {
         System.out.println("P = " + getPerimeter());
     }
 }

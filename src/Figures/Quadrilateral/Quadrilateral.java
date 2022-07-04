@@ -3,9 +3,11 @@ package Figures.Quadrilateral;
 public abstract class Quadrilateral {
 
     public void typeOfFigure() {
-        System.out.println("Эта фигура - четырёхугольник");
+        System.out.print("Фигура - четырёхугольник. В данном случае - ");
     }
 
-    public abstract void area();
-    public abstract void perimeter();
+    public abstract double getArea();
+    public abstract void printArea();
+    public abstract double getPerimeter();
+    public abstract void printPerimeter();
 }
